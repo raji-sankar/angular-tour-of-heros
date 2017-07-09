@@ -17,6 +17,8 @@ var dashboard_component_1 = require("./dashboard.component");
 var hero_detail_component_1 = require("./hero-detail.component");
 var heroes_component_1 = require("./heroes.component");
 var hero_service_1 = require("./hero.service");
+var hero_search_component_1 = require("./hero-search.component");
+var hero_search_service_1 = require("./hero-search.service");
 var app_routing_module_1 = require("./app-routing.module");
 var routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full', },
@@ -42,9 +44,10 @@ AppModule = __decorate([
             app_component_1.AppComponent,
             dashboard_component_1.DashboardComponent,
             hero_detail_component_1.HeroDetailComponent,
-            heroes_component_1.HeroesComponent
+            heroes_component_1.HeroesComponent,
+            hero_search_component_1.HeroSearchComponent
         ],
-        providers: [hero_service_1.HeroService],
+        providers: [platform_browser_1.Title, hero_service_1.HeroService, hero_search_service_1.HeroSearchService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

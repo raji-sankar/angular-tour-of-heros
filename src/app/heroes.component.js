@@ -10,15 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var platform_browser_1 = require("@angular/platform-browser");
 var hero_service_1 = require("./hero.service");
 var HeroesComponent = (function () {
-    function HeroesComponent(router, heroService) {
+    function HeroesComponent(router, heroService, titleService) {
         this.router = router;
         this.heroService = heroService;
+        this.titleService = titleService;
         this.title = 'Tour of Heroes';
     }
     HeroesComponent.prototype.getHeroes = function () {
         var _this = this;
+        this.titleService.setTitle('List of Heroes');
         // this.heroes = this.heroService.getHeroes();
         //slow impl
         // this.heroService.getHeroesSlowly().then(heroes => this.heroes = heroes);
@@ -55,7 +58,8 @@ HeroesComponent = __decorate([
         providers: [hero_service_1.HeroService]
     }),
     __metadata("design:paramtypes", [router_1.Router,
-        hero_service_1.HeroService])
+        hero_service_1.HeroService,
+        platform_browser_1.Title])
 ], HeroesComponent);
 exports.HeroesComponent = HeroesComponent;
 //# sourceMappingURL=heroes.component.js.map

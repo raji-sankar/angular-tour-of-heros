@@ -1,5 +1,5 @@
 import { NgModule }      from '@angular/core';
-import { BrowserModule, Title } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
 import { HttpModule }  from '@angular/http';
 import { RouterModule, Routes }   from '@angular/router';
@@ -41,7 +41,7 @@ const routes: Routes = [
     HeroesComponent,
     HeroSearchComponent
   ],
-  providers: [ Title, HeroService, HeroSearchService ],
+  providers: [ HeroService, HeroSearchService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 
@@ -11,12 +11,6 @@ import { Title } from '@angular/platform-browser';
     <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
   </nav>
 
-  <ul>
-    <li><a (click)="setTitle( 'Good morning!' )">Good morning</a>.</li>
-    <li><a (click)="setTitle( 'Good afternoon!' )">Good afternoon</a>.</li>
-    <li><a (click)="setTitle( 'Good evening!' )">Good evening</a>.</li>
-  </ul>
-
   <router-outlet></router-outlet>
   `,
   styleUrls: ['./app.component.css']
@@ -24,14 +18,10 @@ import { Title } from '@angular/platform-browser';
 
 
 
-export class AppComponent implements OnInit{ 
+export class AppComponent { 
 
   public constructor(private titleService: Title) { }
   title = 'Tour of Heroes'; 
-
-  ngOnInit(): void {
-    this.titleService.setTitle('Angular Tour of Heroes');
-  }
 
   public setTitle(newTitle: string){
     this.titleService.setTitle(newTitle);

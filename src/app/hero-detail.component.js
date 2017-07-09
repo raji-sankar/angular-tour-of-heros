@@ -11,16 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
+var platform_browser_1 = require("@angular/platform-browser");
 var hero_service_1 = require("./hero.service");
 require("rxjs/add/operator/switchMap");
 var HeroDetailComponent = (function () {
-    function HeroDetailComponent(heroService, route, location) {
+    function HeroDetailComponent(heroService, route, location, titleService) {
         this.heroService = heroService;
         this.route = route;
         this.location = location;
+        this.titleService = titleService;
     }
     HeroDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.titleService.setTitle("Hero Detail");
         this.route.paramMap.switchMap(function (params) { return _this.heroService.getHero(+params.get('id')); })
             .subscribe(function (hero) { return _this.hero = hero; });
     };
@@ -42,7 +45,8 @@ HeroDetailComponent = __decorate([
     }),
     __metadata("design:paramtypes", [hero_service_1.HeroService,
         router_1.ActivatedRoute,
-        common_1.Location])
+        common_1.Location,
+        platform_browser_1.Title])
 ], HeroDetailComponent);
 exports.HeroDetailComponent = HeroDetailComponent;
 //# sourceMappingURL=hero-detail.component.js.map

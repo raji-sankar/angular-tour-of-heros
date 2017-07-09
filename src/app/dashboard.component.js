@@ -9,14 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var platform_browser_1 = require("@angular/platform-browser");
 var hero_service_1 = require("./hero.service");
 var DashboardComponent = (function () {
-    function DashboardComponent(heroService) {
+    function DashboardComponent(heroService, titleService) {
         this.heroService = heroService;
+        this.titleService = titleService;
         this.heroes = [];
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.titleService.setTitle("Angular- Heroes Dashboard");
         this.heroService.getHeroes().then(function (heroes) { return _this.heroes = heroes.slice(1, 5); });
     };
     return DashboardComponent;
@@ -27,7 +30,7 @@ DashboardComponent = __decorate([
         templateUrl: './dashboard.component.html',
         styleUrls: ['./dashboard.component.css']
     }),
-    __metadata("design:paramtypes", [hero_service_1.HeroService])
+    __metadata("design:paramtypes", [hero_service_1.HeroService, platform_browser_1.Title])
 ], DashboardComponent);
 exports.DashboardComponent = DashboardComponent;
 //# sourceMappingURL=dashboard.component.js.map
